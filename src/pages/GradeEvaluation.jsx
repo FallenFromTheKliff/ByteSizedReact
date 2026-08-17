@@ -1,7 +1,7 @@
 export default function GradeEvaluation() {
   return (
-    <div>
-      
+    <div className="flex flex-col h-screen w-screen items-center bg-indigo-50">
+      <h1>Evaluating your grades yet bro?</h1>
     </div>
   )
 }

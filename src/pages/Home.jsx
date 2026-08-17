@@ -1,7 +1,7 @@
-export default function PasswordChecker() {
+export default function Home() {
   return (
     <div className="flex flex-col h-screen w-screen items-center bg-indigo-50">
-      <h1>Password is pretty strong??</h1>
+      <h1>Welcome home, BYTEBROS!</h1>
     </div>
   )
 }
