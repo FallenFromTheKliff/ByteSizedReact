@@ -12,15 +12,19 @@ import AttendanceChecker from './pages/AttendanceChecker';
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/act1-login" element={<Login />} />
-        <Route path="/act2-grade-evaluation" element={<GradeEvaluation />} />
-        <Route path="/act3-password-checker" element={<PasswordChecker />} />
-        <Route path="/act4-electricity-bill" element={<ElectricityBill />} />
-        <Route path="/act5-attendance-checker" element={<AttendanceChecker />} />
-      </Routes>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <div className="flex flex-1 flex-col">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/act1-login" element={<Login />} />
+            <Route path="/act2-grade-evaluation" element={<GradeEvaluation />} />
+            <Route path="/act3-password-checker" element={<PasswordChecker />} />
+            <Route path="/act4-electricity-bill" element={<ElectricityBill />} />
+            <Route path="/act5-attendance-checker" element={<AttendanceChecker />} />
+          </Routes>
+        </div>
+      </div>
     </BrowserRouter>
   )
 }
