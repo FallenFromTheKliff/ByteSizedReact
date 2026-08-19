@@ -15,8 +15,13 @@ export default function ElectricityBill() {
   const [consumption, setConsumption] = useState(null);
   const [pageState, SetPageState] = useState("");
 
-  function Clear(){}
-  function Submit(){}
+  function Clear(){
+    setConsumption(null);
+    setCustomerName("");
+  }
+  function CalculateBill(){
+    setCustomerName("Hala si Rene at Adili");
+  }
 
 
 
@@ -38,8 +43,11 @@ export default function ElectricityBill() {
         />
 
 
-          <button type="button" onMouseEnter={Clear}>Clear</button>
-          <button type="button">CalCulate Bill</button>
+          <button className="bg-black hover:bg-gray-500 rounded-sm"
+          type="button" onClick={Clear}>Clear</button>
+
+          <button 
+          type="button" onClick={CalculateBill}>CalCulate Bill</button>
 
 
       
