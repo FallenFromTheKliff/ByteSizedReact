@@ -41,7 +41,7 @@ export default function ElectricityBill() {
           value={consumption}
           onChange={(event) => {setConsumption(event.target.value)}}
         />
-
+        <div>Sample Branch Merge</div>
 
           <button className="bg-black hover:bg-gray-500 rounded-sm"
           type="button" onClick={Clear}>Clear</button>
