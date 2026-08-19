@@ -4,12 +4,13 @@ import { One, Two, Three, Four, Five } from '../data/HomeNav';
 export default function Home() {
   return (
     <div className="flex flex-1 flex-col w-full items-center bg-indigo-50">
-      <h1 className="text-5xl font-bold mt-16">
-          React Activity Portal
+      <h1 className="text-5xl text-gray-800 font-bold mt-16">
+          REACT ACTIVITY PORTAL
       </h1>
-      <h2 className="text-lg text-gray-400 mt-2">
+      <h2 className="text-lg text-gray-500 mt-2">
           Five interactive React activities demonstrating state, events, conditional logic, validation, and calculations!
       </h2>
+      <div className="w-3xl h-1 bg-gray-800 mt-4" />
       <div className="hidden xl:flex flex-col items-center gap-8">
         <div className="flex flex-row flex-wrap items-center justify-center gap-8 mt-12">
           <HomeCard 
@@ -54,28 +55,28 @@ export default function Home() {
             description={One.description}
             path={One.path}
           />
-        </div>
-        <div className="flex flex-row flex-wrap items-center justify-center gap-8">
           <HomeCard 
             id={Two.id}
             title={Two.title}
             description={Two.description}
             path={Two.path}
           />
+        </div>
+        <div className="flex flex-row flex-wrap items-center justify-center gap-8">
           <HomeCard 
             id={Three.id}
             title={Three.title}
             description={Three.description}
             path={Three.path}
           />
-        </div>
-        <div className="flex flex-row flex-wrap items-center justify-center gap-8">
           <HomeCard 
             id={Four.id}
             title={Four.title}
             description={Four.description}
             path={Four.path}
           />
+        </div>
+        <div className="flex flex-row flex-wrap items-center justify-center gap-8">
           <HomeCard 
             id={Five.id}
             title={Five.title}
