@@ -51,13 +51,13 @@ export default function PasswordChecker() {
     <div className="flex flex-1 w-full items-start justify-center bg-[#eef3ff] px-4 py-16">
       <section className="w-full max-w-lg overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm">
         
-        {/* Header matching exact layout and fonts */}
+     
         <div className="bg-[#1f2b3d] px-8 py-8 text-white">
           <h1 className="font-retro text-3xl font-bold">Password Strength Checker</h1>
           <p className="mt-2 font-retro text-lg">Activity 3</p>
         </div>
 
-        {/* Form Body */}
+
         <form className="space-y-6 px-8 py-8" onSubmit={handleCheck}>
           <div>
             <label className="mb-2 block font-retro text-lg font-semibold text-[#172235]" htmlFor="password">
@@ -73,7 +73,7 @@ export default function PasswordChecker() {
             />
           </div>
 
-          {/* Action Buttons */}
+      
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <button
               className="rounded-lg bg-[#1f2b3d] px-5 py-4 font-retro text-lg font-bold text-white shadow-sm hover:bg-[#172235]"
@@ -90,14 +90,14 @@ export default function PasswordChecker() {
             </button>
           </div>
 
-          {/* Error Message */}
+    
           {error && (
             <p className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 font-semibold text-red-600">
               {error}
             </p>
           )}
 
-          {/* Result Card */}
+
           {result && (
             <div className={`rounded-lg border p-5 ${result.boxTheme}`}>
               <p className="text-lg text-[#172235]/70">Password Status</p>
