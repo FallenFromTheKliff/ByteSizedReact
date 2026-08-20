@@ -1,9 +1,9 @@
 import HomeCard from '../components/HomeCard';
-import { One, Two, Three, Four, Five } from '../data/HomeNav';
+import { One, Two, Three, Four, Five } from '../data/navData';
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col w-full items-center bg-indigo-50">
+    <div className="flex flex-1 flex-col w-full items-center bg-linear-0 from-gray-800 to-indigo-50">
       <h1 className="text-5xl text-gray-800 font-retro font-bold mt-16">
           REACT ACTIVITY PORTAL
       </h1>
