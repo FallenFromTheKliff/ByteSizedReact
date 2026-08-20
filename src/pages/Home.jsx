@@ -4,10 +4,10 @@ import { One, Two, Three, Four, Five } from '../data/HomeNav';
 export default function Home() {
   return (
     <div className="flex flex-1 flex-col w-full items-center bg-indigo-50">
-      <h1 className="text-5xl text-gray-800 font-bold mt-16">
+      <h1 className="text-5xl text-gray-800 font-retro font-bold mt-16">
           REACT ACTIVITY PORTAL
       </h1>
-      <h2 className="text-lg text-gray-500 mt-2">
+      <h2 className="text-lg text-gray-500 font-retro mt-2">
           Five interactive React activities demonstrating state, events, conditional logic, validation, and calculations!
       </h2>
       <div className="w-3xl h-1 bg-gray-800 mt-4" />
