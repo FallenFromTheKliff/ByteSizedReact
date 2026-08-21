@@ -5,9 +5,9 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const [usererror, setUserError] = useState("");
-  const [passerror, setPassError] = useState("");
-  const [loginerror, setLoginError] = useState("");
+  const [userError, setUserError] = useState("");
+  const [passError, setPassError] = useState("");
+  const [loginError, setLoginError] = useState("");
   
   const handleLogin = (iwantitthatway) => {
     iwantitthatway.preventDefault();
@@ -39,58 +39,61 @@ export default function Login() {
   }
 
   return (
-    <div className="flex flex-1 flex-col w-full items-center bg-linear-0 from-sky-500 to-indigo-50">
+    <div className="flex flex-1 flex-col w-full items-center bg-linear-to-t from-indigo-50 via-indigo-600 to-sky-500">
       {isLoggedIn ? (
-        <div className="flex flex-col items-center gap-4 mt-16">
-          <h1 className="text-4xl text-sky-600 font-retro font-bold">Welcome back,</h1>
-           <h1 className="text-8xl text-sky-600 font-retro font-bold">{username}!</h1>
+        <div className="flex flex-col items-center mt-16">
+          <h1 className="text-3xl text-indigo-50 font-painter font-bold">Welcome back,</h1>
+           <h1 className="text-9xl text-indigo-50 font-painter font-bold">{username}!</h1>
           <button
             onClick={handleLogout}
-            className="inline-block rounded-lg px-8 py-4 w-lg text-center text-white text-xl bg-sky-600 font-bold hover:bg-sky-800 duration-300 mt-16"
+            className="cursor-pointer rounded-lg px-8 py-4 w-lg text-gray-700 text-3xl font-painter font-bold bg-indigo-200 hover:bg-indigo-300 duration-300 mt-16"
           >
             LOGOUT
           </button>
-          <h2 className="text-sm text-gray-800 font-retro font-bold italic">There's not much here, feel free to leave!</h2>
+          <h2 className="text-lg text-indigo-50 font-painter font-bold mt-4">There's not much here, feel free to leave!</h2>
         </div>
       ) : (
-        <form className="flex flex-col rounded-lg border items-center justify-center border-gray-300 bg-white w-lg h-175 gap-8 mt-16">
-          <h1 className="text-4xl text-gray-800 font-bold mt-12">
-            Sign In
+        <form className="flex flex-col rounded-lg border items-center border-gray-300 bg-white w-lg h-165 mt-16">
+          <h1 className="text-5xl text-indigo-500 font-painter font-bold mt-12">
+            Login Authentication
           </h1>
-          <div className="flex flex-1 flex-col justify-center w-md gap-2">
+          <h2 className="text-xl text-gray-500 font-painter font-bold mt-4">
+            Activity 2
+          </h2>
+          <div className="flex flex-1 flex-col justify-center w-md">
             <div className="h-28">
-              <h3 className="mb-2">Username</h3>
+              <h3 className="text-xl text-gray-600 font-painter font-bold mb-2">Username:</h3>
               <input 
                 type="text"
                 placeholder="Enter your username here!"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full border-2 px-4 py-4 rounded-lg"
+                className="w-full px-4 py-4 placeholder:font-painter placeholder:text-gray-400 rounded-lg border border-indigo-500"
               />
-              {usererror && <p className="text-xs text-red-600 italic mt-2">{usererror}</p>}
+              {userError && <p className="text-sm text-red-600 font-painter mt-2">{userError}</p>}
             </div>
-            <div className="h-28">
-              <h3 className="mb-2">Password</h3>
+            <div className="h-28 mt-4">
+              <h3 className="text-xl text-gray-600 font-painter font-bold mb-2">Password:</h3>
               <input 
                 type="password"
                 placeholder="Enter your password here!"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full border-2 px-4 py-4 rounded-lg"
+                className="w-full px-4 py-4 placeholder:font-painter placeholder:text-gray-400 rounded-lg border border-indigo-500"
               />
-              {passerror && <p className="text-xs text-red-600 italic mt-2">{passerror}</p>}
+              {passError && <p className="text-sm text-red-600 font-painter mt-2">{passError}</p>}
             </div>
             <button
               onClick={handleLogin}
-              className="inline-block rounded-lg px-8 py-4 w-md text-center text-white text-xl bg-sky-600 font-bold hover:bg-sky-800 duration-300 mt-12"
+              className="cursor-pointer rounded-lg px-8 py-4 text-white text-2xl font-painter font-bold bg-indigo-500 hover:bg-indigo-700 duration-300 mt-8"
             >
-              SIGN IN
+              LOGIN
             </button>
             <div className="h-6 mt-2">
-              {loginerror && <p className="text-sm text-center text-red-600 italic">{loginerror}</p>}
+              {loginError && <p className="text-center text-red-600 font-painter">{loginError}</p>}
             </div>
           </div>
-          <h2 className="text-sm text-gray-400 font-bold mb-12">TIP: Try "bytebros" and "BYTEBROS1234" for the credentials!</h2>
+          <h2 className="text-lg text-gray-400 font-painter font-bold mb-8">try "bytebros" and "BYTEBROS1234" for the credentials -jers</h2>
         </form>
       )}
     </div>

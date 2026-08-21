@@ -4,7 +4,27 @@
   font-family: 'Blrrpix';
   src: url('./assets/fonts/blrrpixs016.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'CaveatBrush';
+  src: url('./assets/fonts/caveatbrush.ttf') format('truetype');
+}
 
 @theme {
   --font-retro: 'Blrrpix', sans-serif;
+  --font-painter: 'CaveatBrush', sans-serif;
+}
+
+@utility octagonee-* {
+  --clip-size: --value(integer)px;
+
+  clip-path: polygon(
+    var(--clip-size) 0,
+    calc(100% - var(--clip-size)) 0,
+    100% var(--clip-size),
+    100% calc(100% - var(--clip-size)),
+    calc(100% - var(--clip-size)) 100%,
+    var(--clip-size) 100%,
+    0 calc(100% - var(--clip-size)),
+    0 var(--clip-size)
+  )
 }
