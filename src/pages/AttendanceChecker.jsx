@@ -65,14 +65,14 @@ export default function AttendanceChecker() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-70px)] w-full bg-linear-to-b from-[#dce4ec] via-[#768799] to-[#202b38] flex flex-col items-center py-12 px-4 font-retro">
+    <div className="flex flex-1 w-full overflow-hidden bg-linear-to-b from-[#dce4ec] via-[#768799] to-[#202b38] flex-col items-center py-12 px-4 font-retro">
       <h1 className="text-3xl md:text-4xl text-[#1b2430] tracking-widest text-center mb-2 uppercase font-bold drop-shadow-sm">
         EMPLOYEE ATTENDANCE CHECKER
       </h1>
       <p className="text-xs md:text-sm text-[#3e4c59] text-center max-w-xl mb-4 leading-relaxed tracking-wide">
         Check an employee's time-in and determine whether they are on time, late arrival, or VERY late!
       </p>
-      <div className="w-137.5 max-w-[90%] h-0.75 bg-[#1b2430] mb-10" />
+      <div className="w-137.5 max-w-[90%] h-0.75 bg-[#1b2430] mb-8" />
       <div className="w-full max-w-md bg-white/70 backdrop-blur-xl border border-white/80 octagonee-[24] shadow-2xl p-8 flex flex-col justify-between">
         <div className="w-9 h-9 bg-slate-200/80 octagonee-[8] flex items-center justify-center text-sm font-bold text-slate-800 mb-6">
           5

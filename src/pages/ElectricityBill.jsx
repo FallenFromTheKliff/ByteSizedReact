@@ -57,14 +57,17 @@ export default function ElectricityBill() {
   }
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-black px-5 py-10">
+    <div className="relative flex w-full flex-1 flex-col items-center justify-center overflow-hidden bg-black px-5 py-10">
       <div className="absolute -left-32 top-10 h-80 w-80 rounded-full bg-white/9 blur-[100px]"></div>
       <div className="absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-white/[0.07] blur-[110px]"></div>
       <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/3 blur-[90px]"></div>
       <div className="relative z-10 flex w-full flex-col items-center">
-        <h1 className="mb-9 text-center text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+        <h1 className="text-center text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           Electricity Bill Calculator
         </h1>
+        <h2 className="mt-4 mb-8 text-center font-semibold tracking-tight text-white text-base">
+          ( Activity 4 )
+        </h2>
         {pageState === "input_page" && (
           <ElectricInput
             handleSubmit={handleSubmit}
