@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: 'Blrrpix';
-  src: url('./fonts/blrrpixs016.ttf') format('truetype');
+  src: url('./assets/fonts/blrrpixs016.ttf') format('truetype');
 }
 @font-face {
   font-family: 'CaveatBrush';
-  src: url('./fonts/caveatbrush.ttf') format('truetype');
+  src: url('./assets/fonts/caveatbrush.ttf') format('truetype');
 }
 
 @theme {
