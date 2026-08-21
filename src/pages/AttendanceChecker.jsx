@@ -27,28 +27,25 @@ export default function AttendanceChecker() {
 
     let status;
     let message;
-    let statusBg;
-    let statusBorder;
-    let statusTextColor;
+    let badgeBg;
+    let textColor;
 
+    // Activity 5 logic requirements
     if (time <= 8) {
       status = 'On Time';
       message = 'Status: On Time - Good job!';
-      statusBg = 'rgba(220, 252, 231, 0.4)';
-      statusBorder = 'rgba(74, 222, 128, 0.5)';
-      statusTextColor = '#065f46';
+      badgeBg = 'bg-emerald-500/20 border-emerald-400/50';
+      textColor = 'text-emerald-950';
     } else if (time <= 9) {
       status = 'Late';
       message = 'Status: Late - Please be on time tomorrow.';
-      statusBg = 'rgba(254, 243, 199, 0.4)';
-      statusBorder = 'rgba(245, 158, 11, 0.5)';
-      statusTextColor = '#92400e';
+      badgeBg = 'bg-amber-500/20 border-amber-400/50';
+      textColor = 'text-amber-950';
     } else {
       status = 'Very Late';
       message = 'Status: Very Late - Report to your supervisor.';
-      statusBg = 'rgba(254, 226, 226, 0.4)';
-      statusBorder = 'rgba(239, 68, 68, 0.5)';
-      statusTextColor = '#991b1b';
+      badgeBg = 'bg-rose-500/20 border-rose-400/50';
+      textColor = 'text-rose-950';
     }
 
     setResult({
@@ -56,9 +53,8 @@ export default function AttendanceChecker() {
       time: time,
       status: status,
       message: message,
-      statusBg: statusBg,
-      statusBorder: statusBorder,
-      statusTextColor: statusTextColor,
+      badgeBg: badgeBg,
+      textColor: textColor,
     });
   };
 
@@ -70,65 +66,44 @@ export default function AttendanceChecker() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        background: 'radial-gradient(circle at 10% 20%, rgb(249, 115, 22) 0%, rgb(99, 102, 241) 90.1%)',
-        padding: '20px',
-        boxSizing: 'border-box',
-      }}
-    >
-      <div
-        style={{
-          width: '100%',
-          maxWidth: '440px',
-          padding: '2.5rem',
-          borderRadius: '20px',
-          background: 'rgba(255, 255, 255, 0.25)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          border: '1px solid rgba(255, 255, 255, 0.4)',
-          boxShadow: '0 12px 36px 0 rgba(0, 0, 0, 0.2)',
-          color: '#0f172a',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-        }}
-      >
-        <h2 style={{ margin: '0 0 1.5rem 0', fontSize: '1.4rem', textAlign: 'center', fontWeight: '700' }}>
-          Employee Attendance Checker
-        </h2>
+    <div className="min-h-[calc(100vh-70px)] w-full bg-gradient-to-b from-[#dce4ec] via-[#768799] to-[#202b38] flex flex-col items-center py-12 px-4 font-retro">
+      {/* Scaled Header matching Home Page */}
+      <h1 className="text-3xl md:text-4xl text-[#1b2430] tracking-widest text-center mb-2 uppercase font-bold drop-shadow-sm">
+        EMPLOYEE ATTENDANCE CHECKER
+      </h1>
+      <p className="text-xs md:text-sm text-[#3e4c59] text-center max-w-xl mb-4 leading-relaxed tracking-wide">
+        Check an employee's time-in and determine whether they are on time, late arrival, or VERY late!
+      </p>
 
-        <form onSubmit={handleCheckAttendance}>
-          <div style={{ marginBottom: '1.25rem' }}>
-            <label style={{ fontSize: '0.9rem', fontWeight: '600', color: '#1e293b' }}>
-              Employee Name
+      {/* Decorative Divider */}
+      <div className="w-[550px] max-w-[90%] h-[3px] bg-[#1b2430] mb-10" />
+
+      {/* Glassmorphism Chamfered Container */}
+      <div className="w-full max-w-md bg-white/70 backdrop-blur-xl border border-white/80 octagonee-[24] shadow-2xl p-8 flex flex-col justify-between">
+        {/* Activity Badge */}
+        <div className="w-9 h-9 bg-slate-200/80 octagonee-[8] flex items-center justify-center text-sm font-bold text-slate-800 mb-6">
+          5
+        </div>
+
+        <form onSubmit={handleCheckAttendance} className="space-y-4">
+          {/* Employee Name Input */}
+          <div>
+            <label className="block text-xs text-[#1b2430] mb-1.5 uppercase font-semibold">
+              Employee Name:
             </label>
             <input
               type="text"
               value={employeeName}
               onChange={(e) => setEmployeeName(e.target.value)}
-              placeholder="e.g. John Doe"
-              style={{
-                width: '100%',
-                padding: '10px 14px',
-                marginTop: '6px',
-                borderRadius: '10px',
-                border: '1px solid rgba(255, 255, 255, 0.5)',
-                background: 'rgba(255, 255, 255, 0.4)',
-                color: '#0f172a',
-                fontSize: '0.95rem',
-                outline: 'none',
-                boxSizing: 'border-box',
-              }}
+              placeholder="e.g. John Paulo"
+              className="w-full px-3.5 py-2.5 bg-white/60 backdrop-blur-sm border-2 border-slate-300/80 octagonee-[8] text-xs text-[#1b2430] outline-none focus:border-[#1b2430] transition-colors"
             />
           </div>
 
-          <div style={{ marginBottom: '1.25rem' }}>
-            <label style={{ fontSize: '0.9rem', fontWeight: '600', color: '#1e293b' }}>
-              Time In (e.g., 8.5 for 8:30 AM)
+          {/* Time In Input */}
+          <div>
+            <label className="block text-xs text-[#1b2430] mb-1.5 uppercase font-semibold">
+              Time In (e.g., 8.5 for 8:30 AM):
             </label>
             <input
               type="number"
@@ -136,96 +111,51 @@ export default function AttendanceChecker() {
               value={timeIn}
               onChange={(e) => setTimeIn(e.target.value)}
               placeholder="e.g. 8.5"
-              style={{
-                width: '100%',
-                padding: '10px 14px',
-                marginTop: '6px',
-                borderRadius: '10px',
-                border: '1px solid rgba(255, 255, 255, 0.5)',
-                background: 'rgba(255, 255, 255, 0.4)',
-                color: '#0f172a',
-                fontSize: '0.95rem',
-                outline: 'none',
-                boxSizing: 'border-box',
-              }}
+              className="w-full px-3.5 py-2.5 bg-white/60 backdrop-blur-sm border-2 border-slate-300/80 octagonee-[8] text-xs text-[#1b2430] outline-none focus:border-[#1b2430] transition-colors"
             />
           </div>
 
-          <div style={{ display: 'flex', gap: '12px', marginTop: '1.5rem' }}>
+          {/* Action Buttons */}
+          <div className="pt-2 space-y-2.5">
             <button
               type="submit"
-              style={{
-                flex: 1,
-                padding: '11px',
-                borderRadius: '10px',
-                border: 'none',
-                background: '#1e293b',
-                color: '#ffffff',
-                fontWeight: '600',
-                cursor: 'pointer',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-              }}
+              className="w-full bg-[#1b2430] hover:bg-[#2d3d4f] text-white py-3.5 octagonee-[12] text-xs uppercase tracking-wider cursor-pointer transition-colors active:scale-[0.99]"
             >
-              Check Attendance
+              [ Check Attendance ]
             </button>
             <button
               type="button"
               onClick={handleReset}
-              style={{
-                flex: 1,
-                padding: '11px',
-                borderRadius: '10px',
-                border: '1px solid rgba(255, 255, 255, 0.6)',
-                background: 'rgba(255, 255, 255, 0.3)',
-                color: '#1e293b',
-                fontWeight: '600',
-                cursor: 'pointer',
-              }}
+              className="w-full bg-slate-200/60 hover:bg-slate-200 text-slate-700 py-2.5 octagonee-[12] text-xs uppercase tracking-wider border border-slate-300/70 cursor-pointer transition-colors"
             >
-              Reset
+              [ Reset ]
             </button>
           </div>
         </form>
 
+        {/* Error Feedback */}
         {error && (
-          <div
-            style={{
-              marginTop: '1.25rem',
-              padding: '10px 14px',
-              borderRadius: '8px',
-              background: 'rgba(254, 226, 226, 0.6)',
-              border: '1px solid rgba(239, 68, 68, 0.4)',
-              color: '#991b1b',
-              fontSize: '0.9rem',
-              fontWeight: '500',
-            }}
-          >
-            {error}
+          <div className="mt-4 p-3 bg-rose-100/70 backdrop-blur-sm border-2 border-rose-300/80 text-rose-800 text-xs octagonee-[8]">
+            ! {error}
           </div>
         )}
 
+        {/* Result Card */}
         {result && (
-          <div
-            style={{
-              marginTop: '1.5rem',
-              padding: '1.25rem',
-              borderRadius: '12px',
-              background: result.statusBg,
-              border: `1px solid ${result.statusBorder}`,
-              backdropFilter: 'blur(8px)',
-            }}
-          >
-            <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.05rem', color: '#0f172a' }}>Attendance Result</h3>
-            <p style={{ margin: '0.25rem 0', color: '#1e293b' }}>
-              <strong>Name:</strong> {result.name}
+          <div className={`mt-5 p-4 octagonee-[12] border-2 backdrop-blur-md ${result.badgeBg} ${result.textColor} space-y-1`}>
+            <h3 className="text-xs font-bold uppercase mb-2 text-[#1b2430]">
+              Attendance Result:
+            </h3>
+            <p className="text-xs text-slate-900">
+              <span className="font-bold">Name:</span> {result.name}
             </p>
-            <p style={{ margin: '0.25rem 0', color: '#1e293b' }}>
-              <strong>Time In:</strong> {result.time}
+            <p className="text-xs text-slate-900">
+              <span className="font-bold">Time In:</span> {result.time}
             </p>
-            <p style={{ margin: '0.25rem 0', color: '#1e293b' }}>
-              <strong>Status:</strong> {result.status}
+            <p className="text-xs text-slate-900">
+              <span className="font-bold">Status:</span> {result.status}
             </p>
-            <p style={{ margin: '0.5rem 0 0 0', fontWeight: '700', color: result.statusTextColor }}>
+            <p className="text-xs font-bold pt-1">
               {result.message}
             </p>
           </div>
