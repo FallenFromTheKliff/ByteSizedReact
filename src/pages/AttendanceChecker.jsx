@@ -47,6 +47,13 @@ export default function AttendanceChecker() {
     });
   };
 
+  const handleReset = () => {
+    setEmployeeName('');
+    setTimeIn('');
+    setResult(null);
+    setError('');
+  };
+
   return (
     <div>
       <h2>Employee Attendance Checker</h2>
@@ -70,8 +77,23 @@ export default function AttendanceChecker() {
             placeholder="e.g. 8.5"
           />
         </div>
-        <button type="submit">Check Attendance</button>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <button type="submit">Check Attendance</button>
+          <button type="button" onClick={handleReset}>Reset</button>
+        </div>
       </form>
+
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+
+      {result && (
+        <div>
+          <h3>Attendance Summary</h3>
+          <p><strong>Name:</strong> {result.name}</p>
+          <p><strong>Time In:</strong> {result.time}</p>
+          <p><strong>Status:</strong> {result.status}</p>
+          <p>{result.message}</p>
+        </div>
+      )}
     </div>
   );
 }
