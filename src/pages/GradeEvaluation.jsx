@@ -55,7 +55,6 @@ export default function GradeEvaluation() {
           <h1 className="font-retro text-3xl font-bold">Student Grade Evaluation</h1>
           <p className="mt-2 font-retro text-lg">Activity 2</p>
         </div>
-
         <form className="space-y-6 px-8 py-8" onSubmit={handleEvaluate}>
           <div>
             <label className="mb-2 block font-retro text-lg font-semibold text-[#172235]" htmlFor="studentName">
@@ -70,7 +69,6 @@ export default function GradeEvaluation() {
               placeholder="Enter student name"
             />
           </div>
-
           <div>
             <label className="mb-2 block font-retro text-lg font-semibold text-[#172235]" htmlFor="score">
               Score
@@ -84,7 +82,6 @@ export default function GradeEvaluation() {
               placeholder="Enter score (0-100)"
             />
           </div>
-
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <button
               className="rounded-lg bg-[#1f2b3d] px-5 py-4 font-retro text-lg font-bold text-white shadow-sm hover:bg-[#172235]"
@@ -100,13 +97,11 @@ export default function GradeEvaluation() {
               Clear
             </button>
           </div>
-
           {error && (
             <p className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 font-semibold text-red-600">
               {error}
             </p>
           )}
-
           {result && (
             <div className={`rounded-lg border p-5 ${resultTheme.box}`}>
               <p className={`text-lg ${resultTheme.label}`}>Student Name</p>

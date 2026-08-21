@@ -30,7 +30,6 @@ export default function AttendanceChecker() {
     let badgeBg;
     let textColor;
 
-    // Activity 5 logic requirements
     if (time <= 8) {
       status = 'On Time';
       message = 'Status: On Time - Good job!';
@@ -66,27 +65,19 @@ export default function AttendanceChecker() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-70px)] w-full bg-gradient-to-b from-[#dce4ec] via-[#768799] to-[#202b38] flex flex-col items-center py-12 px-4 font-retro">
-      {/* Scaled Header matching Home Page */}
+    <div className="min-h-[calc(100vh-70px)] w-full bg-linear-to-b from-[#dce4ec] via-[#768799] to-[#202b38] flex flex-col items-center py-12 px-4 font-retro">
       <h1 className="text-3xl md:text-4xl text-[#1b2430] tracking-widest text-center mb-2 uppercase font-bold drop-shadow-sm">
         EMPLOYEE ATTENDANCE CHECKER
       </h1>
       <p className="text-xs md:text-sm text-[#3e4c59] text-center max-w-xl mb-4 leading-relaxed tracking-wide">
         Check an employee's time-in and determine whether they are on time, late arrival, or VERY late!
       </p>
-
-      {/* Decorative Divider */}
-      <div className="w-[550px] max-w-[90%] h-[3px] bg-[#1b2430] mb-10" />
-
-      {/* Glassmorphism Chamfered Container */}
+      <div className="w-137.5 max-w-[90%] h-0.75 bg-[#1b2430] mb-10" />
       <div className="w-full max-w-md bg-white/70 backdrop-blur-xl border border-white/80 octagonee-[24] shadow-2xl p-8 flex flex-col justify-between">
-        {/* Activity Badge */}
         <div className="w-9 h-9 bg-slate-200/80 octagonee-[8] flex items-center justify-center text-sm font-bold text-slate-800 mb-6">
           5
         </div>
-
         <form onSubmit={handleCheckAttendance} className="space-y-4">
-          {/* Employee Name Input */}
           <div>
             <label className="block text-xs text-[#1b2430] mb-1.5 uppercase font-semibold">
               Employee Name:
@@ -99,8 +90,6 @@ export default function AttendanceChecker() {
               className="w-full px-3.5 py-2.5 bg-white/60 backdrop-blur-sm border-2 border-slate-300/80 octagonee-[8] text-xs text-[#1b2430] outline-none focus:border-[#1b2430] transition-colors"
             />
           </div>
-
-          {/* Time In Input */}
           <div>
             <label className="block text-xs text-[#1b2430] mb-1.5 uppercase font-semibold">
               Time In (e.g., 8.5 for 8:30 AM):
@@ -114,8 +103,6 @@ export default function AttendanceChecker() {
               className="w-full px-3.5 py-2.5 bg-white/60 backdrop-blur-sm border-2 border-slate-300/80 octagonee-[8] text-xs text-[#1b2430] outline-none focus:border-[#1b2430] transition-colors"
             />
           </div>
-
-          {/* Action Buttons */}
           <div className="pt-2 space-y-2.5">
             <button
               type="submit"
@@ -132,15 +119,11 @@ export default function AttendanceChecker() {
             </button>
           </div>
         </form>
-
-        {/* Error Feedback */}
         {error && (
           <div className="mt-4 p-3 bg-rose-100/70 backdrop-blur-sm border-2 border-rose-300/80 text-rose-800 text-xs octagonee-[8]">
             ! {error}
           </div>
         )}
-
-        {/* Result Card */}
         {result && (
           <div className={`mt-5 p-4 octagonee-[12] border-2 backdrop-blur-md ${result.badgeBg} ${result.textColor} space-y-1`}>
             <h3 className="text-xs font-bold uppercase mb-2 text-[#1b2430]">
