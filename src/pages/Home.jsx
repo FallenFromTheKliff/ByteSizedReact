@@ -1,14 +1,14 @@
 import HomeCard from '../components/HomeCard';
-import { One, Two, Three, Four, Five } from '../data/HomeNav';
+import { One, Two, Three, Four, Five } from '../data/navData';
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col w-full items-center bg-indigo-50">
+    <div className="flex flex-1 flex-col w-full items-center bg-linear-to-t from-gray-800 via-gray-600 to-gray-50">
       <h1 className="text-5xl text-gray-800 font-retro font-bold mt-16">
-          REACT ACTIVITY PORTAL
+        REACT ACTIVITY PORTAL
       </h1>
       <h2 className="text-lg text-gray-500 font-retro mt-2">
-          Five interactive React activities demonstrating state, events, conditional logic, validation, and calculations!
+        Five interactive React activities demonstrating state, events, conditional logic, validation, and calculations!
       </h2>
       <div className="w-3xl h-1 bg-gray-800 mt-4" />
       <div className="hidden xl:flex flex-col items-center gap-8">

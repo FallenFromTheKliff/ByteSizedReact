@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getGradeRemarks, getGradeTheme } from "./gradeEvaluationLogic";
+import { getGradeRemarks, getGradeTheme } from "../utils/gradeUtils";
 
 export default function GradeEvaluation() {
   const [studentName, setStudentName] = useState("");
