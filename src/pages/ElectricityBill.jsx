@@ -1,9 +1,44 @@
-import { useState,  } from "react"
+import { useState, } from "react"
 
-function InputPage(){
+function InputPage({handleSubmit}) {
+  const [customerName, setCustomerName] = useState('');
+  const [consumption, setConsumption] = useState(null);
+
+
   return (
     <div>
-      <h1>BROOOOO121</h1>
+      <form onSubmit= {(e)=>handleSubmit(consumption)}>
+        <input type="text" name="" id="" />
+
+        <input type="number" name="" id="" />
+
+        <button type="submit">Calculate Bill</button>
+        <button type="reset">Clear</button>
+      </form>
+    </div>
+  )
+}
+
+function Condition({handleClick}) {
+  return (
+    <div>
+        <div>0-100 kWh = P10 per kWh</div>
+        <div>0-100 kWh = P10 per kWh</div>
+        <div>0-100 kWh = P10 per kWh</div>
+        <div>0-100 kWh = P10 per kWh</div>
+        <div>0-100 kWh = P10 per kWh</div>
+
+        <button type="button" 
+        onClick={(e)=>handleClick("result_page")}
+        >Result Page </button>
+    </div>
+  )
+}
+
+function ResultPage() {
+  return (
+    <div>
+    bro
     </div>
   )
 }
@@ -11,54 +46,29 @@ function InputPage(){
 
 
 export default function ElectricityBill() {
-  const [customerName, setCustomerName] = useState('');
-  const [consumption, setConsumption] = useState(null);
-  const [pageState, SetPageState] = useState("");
-
-  function Clear(){
-    setConsumption(null);
-    setCustomerName("");
-  }
-  function CalculateBill(){
-    setCustomerName("Hala si Rene at Adili");
+  const [pageState, SetPageState] = useState("input_page");
+  const [calculatedValue, setCaculatedValue] = useState("");
+  function handleSubmit(value){
+    SetPageState("condition_page");
+    setCaculatedValue(calculateValue(value));
   }
 
+  function calculateValue(value){
+    if(value <=100){
+      return value * 10;
+    }
+    if(value <=200){
+      return value * 12;
+    }
+  }
 
 
   return (
     <div className="flex flex-1 flex-col w-full items-center bg-indigo-50">
-      <h1 className="">Electricity Bill Calculator {customerName} {consumption}</h1>
-      <InputPage></InputPage>
-      <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl p-8 text-white">
-        <input type="text" 
-          placeholder="Enter Customer Name"
-          value={customerName}
-          onChange={(event) => {setCustomerName(event.target.value)}}
-          />
-
-        <input type="number"
-          placeholder="Enter Consumption(kWh)"
-          value={consumption}
-          onChange={(event) => {setConsumption(event.target.value)}}
-        />
-        <div>Sample Branch Merge</div>
-        <div>TEST 2 Rename Branch</div>
-
-          <button className="bg-black hover:bg-gray-500 rounded-sm"
-          type="button" onClick={Clear}>Clear</button>
-
-          <button 
-          type="button" onClick={CalculateBill}>CalCulate Bill</button>
-
-
-      
-      
-      <div>Sample Form {name}</div>
-      
-
-      </div>
-
-
+      <h1 className="">Electricity Bill Calculator</h1>
+      {pageState === "input_page" && <InputPage handleSubmit={handleSubmit}/>}
+      {pageState === "condition_page" && <Condition handleClick={SetPageState}/>}
+      {pageState === "result_page" && <ResultPage></ResultPage>}
 
     </div>
   )
